@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* CSS HSL */
+--artichoke: hsla(72, 11%, 54%, 1);
+--green-yellow-crayola: hsla(57, 64%, 73%, 1);
+--lemon-yellow-crayola: hsla(59, 98%, 84%, 1);
+--medium-champagne: hsla(49, 62%, 78%, 1);
+--cornsilk: hsla(50, 100%, 94%, 1);
+}
+
+body {
+    background: #eacda3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: 'Play', sans-serif;
+}
+
+.container {
+    height: 560px;
+    width: 330px;
+    margin: 60px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--cornsilk);
+    box-shadow: 0px 15px 10px var(--artichoke);
+}
+
+.container__header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--lemon-yellow-crayola);
+    padding: 0 15px;
+}
+
+.container__header__logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 16px;
+}
+
+.container__header__title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.container__nav__menu {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    font-weight: 400;
+    background-color: var(--artichoke);
+    color: var(--cornsilk);
+}
+
+.container__nav__menu__start {
+    cursor: pointer;
+}
+
+.container__nav__menu__start:hover {
+    font-weight: 700;
+}
+
+.container__nav__menu__reset {
+    cursor: pointer;
+
+}
+
+.container__nav__menu__reset:hover {
+    font-weight: 700;
+
+}
+
+.container__info__card {
+    width: 310px;
+    height: 430px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: var(--medium-champagne);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container__info__card__start {
+    width: 70px;
+    height: 100px;
+    background-color: rgba(145, 148, 129, 0.9);
+    border-radius: 10px;
+    margin: 2px;
+    cursor: pointer;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.container__info__card__start.flipped {
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: contrast(1.5) brightness(1.2) saturate(1.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.destapada {
+    width: 70px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.container__info__card__start:hover {
+    opacity: 0.6;
+}
+
+.profile {
+    text-align: center;
+    margin: 10px;
+}
+
+.profile__link {
+    text-decoration: none;
+}
+
+.matched {
+    opacity: 0.7;
+    pointer-events: none; /* Evita que se puedan hacer clic en cartas ya emparejadas */
+}
+
+.container__info__card__start.matched {
+    background-size: 80% 80% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    filter: contrast(1.5) brightness(1.2) saturate(1.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-13px); }
+    40% { transform: translateX(13px); }
+    60% { transform: translateX(-8px); }
+    80% { transform: translateX(8px); }
+}
+
+.container__header__stats {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    color: var(--artichoke);
+}
+
+.winner {
+    animation: winner 1s ease infinite;
+}
+
+@keyframes winner {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.moves {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--artichoke);
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--artichoke);
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.timer-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Añadir estilo para cuando quede poco tiempo */
+.timer.warning {
+    color: #ff0000;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: var(--cornsilk);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    animation: popupIn 0.5s ease-out;
+}
+
+.popup-content .timer {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.trophy-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    animation: trophyBounce 1s ease infinite;
+}
+
+#closePopup {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--artichoke);
+    color: var(--cornsilk);
+    cursor: pointer;
+    font-family: 'Play', sans-serif;
+    font-size: 16px;
+}
+
+#closePopup:hover {
+    opacity: 0.9;
+}
+
+@keyframes popupIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes trophyBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Efecto de gradiente en las cartas sin voltear */
+.container__info__card__start:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        var(--artichoke) 0%,
+        var(--green-yellow-crayola) 50%,
+        var(--medium-champagne) 100%
+    );
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+/* Efecto para las cartas volteadas */
+.container__info__card__start.flipped {
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: contrast(1.5) brightness(1.2) saturate(1.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto para las cartas que hacen match */
+.container__info__card__start.matched {
+    background-size: 80% 80% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    filter: contrast(1.5) brightness(1.2) saturate(1.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+}
+
+/* Efecto hover */
+.container__info__card__start:hover:not(.matched):not(.flipped) {
+    background-color: rgba(145, 148, 129, 1);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Efecto de brillo en las cartas */
+.container__info__card__start:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.1) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.container__info__card__start:hover:after {
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-200%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Efecto para las imágenes de las cartas volteadas */
+.container__info__card__start.flipped {
+    filter: drop-shadow(0 0 5px var(--green-yellow-crayola))
+           brightness(1.1)
+           contrast(1.1);
+}
+
+/* Opción 1: Tonos azulados */
+.container__info__card__start.flipped {
+    filter: hue-rotate(240deg) saturate(70%) brightness(0.8);
+}
+
+/* Opción 2: Tonos verdosos */
+.container__info__card__start.flipped {
+    filter: hue-rotate(120deg) saturate(80%) brightness(0.7);
+}
+
+/* Opción 3: Tonos dorados */
+.container__info__card__start.flipped {
+    filter: sepia(100%) hue-rotate(350deg) saturate(150%) brightness(0.9);
+}
+
+/* Opción 4: Tonos morados */
+.container__info__card__start.flipped {
+    filter: hue-rotate(280deg) saturate(90%) brightness(0.75);
+}
+
+/* Añadimos un efecto de borde sutil cuando está volteada */
+.container__info__card__start.flipped,
+.container__info__card__start.matched {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+}

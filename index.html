@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="container">
+        <header class="container__header">
+            <img src="./images/8.png" alt="logo" class="container__header__logo">
+            <h1 class="container__header__title">MEMORY CARD GAME</h1>
+            <div class="stats">
+                <span class="moves">Moves: <span id="moveCount">0</span></span>
+                <span class="timer">
+                    <img src="./images/timer_time.png" alt="timer" class="timer-icon">
+                    <span id="timeLeft">60</span>s
+                </span>
+            </div>
+        </header>
+        <nav class="container__nav">
+            <ul class="container__nav__menu">
+                <li class="container__nav__menu__start" id="start">START</li>
+                <li class="container__nav__menu__reset" id="reset">RESET</li>
+            </ul>
+        </nav>
+        <article class="container__info">
+            <section class="container__info__card">
+                <div class="container__info__card__td1">
+                    <div class="container__info__card__start" id="1" data-card=""></div>
+                    <div class="container__info__card__start" id="2" data-card=""></div>
+                    <div class="container__info__card__start" id="3" data-card=""></div>
+                    <div class="container__info__card__start" id="4" data-card=""></div>
+                </div>
+                <div class="container__info__card__td2">
+                    <div class="container__info__card__start" id="5" data-card=""></div>
+                    <div class="container__info__card__start" id="6" data-card=""></div>
+                    <div class="container__info__card__start" id="7" data-card=""></div>
+                    <div class="container__info__card__start" id="8" data-card=""></div>
+                </div>
+                <div class="container__info__card__td3">
+                    <div class="container__info__card__start" id="9" data-card=""></div>
+                    <div class="container__info__card__start" id="10" data-card=""></div>
+                    <div class="container__info__card__start" id="11" data-card=""></div>
+                    <div class="container__info__card__start" id="12" data-card=""></div>
+                </div>
+                <div class="container__info__card__td4">
+                    <div class="container__info__card__start" id="13" data-card=""></div>
+                    <div class="container__info__card__start" id="14" data-card=""></div>
+                    <div class="container__info__card__start" id="15" data-card=""></div>
+                    <div class="container__info__card__start" id="16" data-card=""></div>
+                </div>
+            </section>
+        </article>
+</main>
+<footer class="profile">Created by <a href="https://sientelared.com" class="profile__link">Carlos Sánchez</a> </footer>
+<div id="winPopup" class="popup">
+    <div class="popup-content">
+        <img src="./images/award_prize.png" alt="trophy" class="trophy-img">
+        <h2>¡Felicitaciones!</h2>
+        <p>Has ganado en <span id="finalMoves">0</span> movimientos</p>
+        <p class="timer">
+            <img src="./images/timer_time.png" alt="timer" class="timer-icon">
+            Tiempo restante: <span id="finalTime">0</span> segundos
+        </p>
+        <button id="closePopup">Jugar de nuevo</button>
+    </div>
+</div>
+<script src="main.js"></script>    
+</body>
+</html>
